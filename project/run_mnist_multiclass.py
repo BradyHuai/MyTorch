@@ -41,7 +41,6 @@ class Conv2d(minitorch.Module):
         self.bias = RParam(out_channels, 1, 1)
 
     def forward(self, input):
-        # TODO: Implement for Task 4.5.
         return minitorch.conv2d(input, self.weights.value) + self.bias.value
 
 
@@ -62,19 +61,16 @@ class Network(minitorch.Module):
 
     def __init__(self):
         super().__init__()
-
         # For vis
         self.mid = None
         self.out = None
 
-        # TODO: Implement for Task 4.5.
         self.layer1 = Conv2d(1, 4, 3, 3)
         self.layer2 = Conv2d(4, 8, 3, 3)
         self.layer3 = Linear(392, 64)
         self.layer4 = Linear(64, C)
 
     def forward(self, x):
-        # TODO: Implement for Task 4.5.
         self.mid = self.layer1.forward(x).relu()
         self.out = self.layer2.forward(self.mid).relu()
         h = minitorch.nn.maxpool2d(self.out, (4, 4))

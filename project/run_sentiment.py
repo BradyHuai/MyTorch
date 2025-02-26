@@ -34,13 +34,12 @@ class Conv1d(minitorch.Module):
         self.bias = RParam(1, out_channels, 1)
 
     def forward(self, input):
-        # TODO: Implement for Task 4.5.
         return minitorch.conv1d(input, self.weights.value) + self.bias.value
 
 
 class CNNSentimentKim(minitorch.Module):
     """
-    Implement a CNN for Sentiment classification based on Y. Kim 2014.
+    A CNN for Sentiment classification based on Y. Kim 2014.
 
     This model should implement the following procedure:
 
@@ -61,7 +60,6 @@ class CNNSentimentKim(minitorch.Module):
     ):
         super().__init__()
         self.feature_map_size = feature_map_size
-        # TODO: Implement for Task 4.5.
         self.layer1 = Conv1d(embedding_size, feature_map_size, filter_sizes[0])
         self.layer2 = Conv1d(embedding_size, feature_map_size, filter_sizes[1])
         self.layer3 = Conv1d(embedding_size, feature_map_size, filter_sizes[2])
@@ -72,7 +70,6 @@ class CNNSentimentKim(minitorch.Module):
         """
         embeddings tensor: [batch x sentence length x embedding dim]
         """
-        # TODO: Implement for Task 4.5.
         embeddings = embeddings.permute(0, 2, 1)
         # feature maps
         c1 = self.layer1.forward(embeddings).relu()
@@ -86,7 +83,6 @@ class CNNSentimentKim(minitorch.Module):
         return h.sigmoid().view(embeddings.shape[0])
 
 
-# Evaluation helper methods
 def get_predictions_array(y_true, model_output):
     predictions_array = []
     for j, logit in enumerate(model_output.to_numpy()):
@@ -218,7 +214,6 @@ def encode_sentences(
     ys = []
     for sentence in dataset["sentence"][:N]:
         # pad with 0s to max sentence length in order to enable batching
-        # TODO: move padding to training code
         sentence_embedding = [[0] * embeddings_lookup.d_emb] * max_sentence_len
         for i, w in enumerate(sentence.split()):
             sentence_embedding[i] = [0] * embeddings_lookup.d_emb
