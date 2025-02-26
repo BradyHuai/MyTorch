@@ -35,7 +35,6 @@ def tile(input: Tensor, kernel: Tuple[int, int]) -> Tuple[Tensor, int, int]:
     kh, kw = kernel
     assert height % kh == 0
     assert width % kw == 0
-    # TODO: Implement for Task 4.3.
     # Calculate the new dimensions after pooling
     new_height = height // kh
     new_width = width // kw

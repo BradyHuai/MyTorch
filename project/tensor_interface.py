@@ -74,7 +74,6 @@ def st_visualize_tensor(
         strides = tensor._tensor.strides
 
     if len(tensor.shape) != 3:
-        # TODO: Fix visualization instead of showing warning
         st.error("Can only visualize a tensor which has 3 dimensions")
         return
 

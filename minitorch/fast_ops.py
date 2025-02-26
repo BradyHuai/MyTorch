@@ -21,8 +21,6 @@ if TYPE_CHECKING:
     from .tensor import Tensor
     from .tensor_data import Index, Shape, Storage, Strides
 
-# TIP: Use `NUMBA_DISABLE_JIT=1 pytest tests/ -m task3_1` to run these tests without JIT.
-
 # This code will JIT compile fast versions your tensor_data functions.
 # If you get an error, read the docs for NUMBA as to what is allowed
 # in these functions.

@@ -8,7 +8,7 @@ from .strategies import assert_close
 from .tensor_strategies import tensors
 
 
-@pytest.mark.task4_3
+@pytest.mark.mat
 @given(tensors(shape=(1, 1, 4, 4)))
 def test_avg(t: Tensor) -> None:
     out = minitorch.avgpool2d(t, (2, 2))
@@ -28,10 +28,9 @@ def test_avg(t: Tensor) -> None:
     minitorch.grad_check(lambda t: minitorch.avgpool2d(t, (2, 2)), t)
 
 
-@pytest.mark.task4_4
+@pytest.mark.mat
 @given(tensors(shape=(2, 3, 4)))
 def test_max(t: Tensor) -> None:
-    # TODO: Implement for Task 4.4.
     out = minitorch.max(t, 0)
     print(out)
     print(t)
@@ -50,7 +49,7 @@ def test_max(t: Tensor) -> None:
     minitorch.grad_check(lambda t: minitorch.max(t, 2), t)
 
 
-@pytest.mark.task4_4
+@pytest.mark.nn
 @given(tensors(shape=(1, 1, 4, 4)))
 def test_max_pool(t: Tensor) -> None:
     out = minitorch.maxpool2d(t, (2, 2))
@@ -71,7 +70,7 @@ def test_max_pool(t: Tensor) -> None:
     )
 
 
-@pytest.mark.task4_4
+@pytest.mark.nn
 @given(tensors())
 def test_drop(t: Tensor) -> None:
     q = minitorch.dropout(t, 0.0)
@@ -84,7 +83,7 @@ def test_drop(t: Tensor) -> None:
     assert q[idx] == t[idx]
 
 
-@pytest.mark.task4_4
+@pytest.mark.nn
 @given(tensors(shape=(1, 1, 4, 4)))
 def test_softmax(t: Tensor) -> None:
     q = minitorch.softmax(t, 3)
@@ -98,7 +97,7 @@ def test_softmax(t: Tensor) -> None:
     minitorch.grad_check(lambda a: minitorch.softmax(a, dim=2), t)
 
 
-@pytest.mark.task4_4
+@pytest.mark.nn
 @given(tensors(shape=(1, 1, 4, 4)))
 def test_log_softmax(t: Tensor) -> None:
     q = minitorch.softmax(t, 3)
