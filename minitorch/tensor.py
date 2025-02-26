@@ -11,7 +11,6 @@ from . import operators
 from .autodiff import Context, Variable, backpropagate
 from .tensor_data import TensorData
 
-# Comment these out if not yet implemented
 from .tensor_functions import (
     EQ,
     LT,

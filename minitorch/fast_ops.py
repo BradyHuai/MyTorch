@@ -333,7 +333,6 @@ def _tensor_matrix_multiply(
     * No index buffers or function calls
     * Inner loop should have no global writes, 1 multiply.
 
-
     Args:
     ----
         out (Storage): storage for `out` tensor

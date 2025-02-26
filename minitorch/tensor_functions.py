@@ -712,9 +712,6 @@ def tensor(
     return _tensor(cur, tuple(shape2), backend=backend, requires_grad=requires_grad)
 
 
-# Gradient check for tensors
-
-
 def grad_central_difference(
     f: Any, *vals: Tensor, arg: int = 0, epsilon: float = 1e-6, ind: UserIndex
 ) -> float:

@@ -51,7 +51,6 @@ def tile(input: Tensor, kernel: Tuple[int, int]) -> Tuple[Tensor, int, int]:
     return tiled, new_height, new_width
 
 
-# TODO: Implement for Task 4.3.
 def avgpool2d(input: Tensor, kernel: Tuple[int, int]) -> Tensor:
     """Perform 2D average pooling using the tile function.
 
