@@ -27,8 +27,14 @@ python -m pip install -Ue .
 ```
 
 
-* Tests:
+## Tests:
 
 ```
 pytest
 ```
+
+## Run
+MNIST is already provided in `project/data`,
+```bash
+python project/run_mnist_multiclass.py
+python project/run_sentiment.py
